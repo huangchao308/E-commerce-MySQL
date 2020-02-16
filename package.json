@@ -1,0 +1,39 @@
+{
+  "name": "e-commerce-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "tsc",
+    "fix": "tslint --project . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huangchao308/E-commerce-MySQL.git"
+  },
+  "author": "Murphy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huangchao308/E-commerce-MySQL/issues"
+  },
+  "homepage": "https://github.com/huangchao308/E-commerce-MySQL#readme",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa2-cors": "^2.0.6",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/koa": "^2.0.48",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa-router": "^7.0.42",
+    "@types/koa2-cors": "^2.0.1",
+    "@types/node": "^12.12.7",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.7.2"
+  }
+}
