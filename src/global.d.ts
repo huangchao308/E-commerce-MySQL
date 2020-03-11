@@ -44,6 +44,42 @@ type User = {
   birthday?: string
 }
 
-declare const a : {
+type Vender = {
+  name: string
+  description?: string
+  country: string
+  province: string
+  city: string
+  address: string
+  tel: string
+}
 
+type Address = {
+  customer_id: number
+  country: string
+  province: string
+  city: string
+  address: string
+  zip: string
+}
+
+type Order = {
+  id?: number
+  type: number
+  customer_id: number
+  status: number
+  date?: string
+  refer_order?: number
+  amounts: number
+  address: number
+  lines: OrderLine[]
+}
+
+type OrderLine = {
+  order_id: number
+  line_no?: number
+  product_id: string
+  price: number
+  qty: number
+  amount: number
 }

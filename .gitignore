@@ -86,8 +86,6 @@ typings/
 # Typescript build output
 build/*
 
-# test file
-**/test/*
 © 2020 GitHub, Inc.
 Terms
 Privacy

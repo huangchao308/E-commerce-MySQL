@@ -1,0 +1,122 @@
+POST http://localhost:3001/admin/products/ HTTP/1.1
+content-type: application/json
+
+{
+    "id": "DW00100012",
+    "name": "test product",
+    "description": "Just for test",
+    "vender_id": 1,
+    "category_id": 4,
+    "actual_qty": 100,
+    "valid_qty": 100,
+    "attributes": [
+        {
+            "attribute_name": "表盘直径",
+            "attribute_value": "32mm"
+        },
+        {
+            "attribute_name": "表盘颜色",
+            "attribute_value": "黑色"
+        },
+        {
+            "attribute_name": "表带材质",
+            "attribute_value": "不锈钢"
+        },
+        {
+            "attribute_name": "表带颜色",
+            "attribute_value": "银色"
+        }
+    ],
+    "priceList": [
+      {
+        "type": 0,
+        "price": 2999.00
+      }
+    ]
+}
+
+###
+
+GET http://localhost:3001/admin/products/DW00100012 HTTP/1.1
+
+###
+
+POST http://localhost:3001/customer/login HTTP/1.1
+content-type: application/json
+
+{
+  "username": "wangwu",
+  "password": "hc054821"
+}
+
+###
+
+POST http://localhost:3001/customer/register HTTP/1.1
+content-type: application/json
+
+{
+  "username": "wangwu",
+  "password": "hc054821",
+  "mobile": "18566230202",
+  "nickname": "王五",
+  "gender": 1,
+  "birthday": "1991-05-29"
+}
+
+###
+
+GET http://localhost:3001/vender?province=湖南 HTTP/1.1
+
+###
+POST http://localhost:3001/vender HTTP/1.1
+content-type: application/json
+
+{
+    "name": "供应商A",
+    "description": "another vender",
+    "country": "中国",
+    "province": "湖南",
+    "city": "长沙",
+    "address": "长沙市雨花区某地",
+    "tel": "0731-12333333"
+}
+
+###
+POST http://localhost:3001/customer/address HTTP/1.1
+content-type: application/json
+
+{
+    "customer_id": 1,
+    "country": "中国",
+    "province": "湖南",
+    "city": "长沙",
+    "address": "长沙市雨花区某地",
+    "zip": "123456"
+}
+
+###
+POST http://localhost:3001/order HTTP/1.1
+content-type: application/json
+Authorization: Basic d2FuZ3d1OmhjMDU0ODIx
+
+{
+  "type": 1,
+  "status": 10,
+  "amounts": 2090,
+  "address": 1,
+  "lines": [
+    {
+      "product_id": "DW00100004",
+      "price": 1490,
+      "qty": 1,
+      "amount": 1490
+    },
+    {
+      "product_id": "DW00200001",
+      "price": 600,
+      "qty": 1,
+      "amount": 600
+    }
+  ]
+}
+

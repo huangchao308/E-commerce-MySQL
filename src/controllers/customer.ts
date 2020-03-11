@@ -27,4 +27,15 @@ export default class CustomerController {
       data: { message: 'username or password invalid' }
     }
   }
+
+  public async addAddress (address: Address): Promise<ControllerResponse> {
+    const result = await insert(`
+      insert into customer_address(${Object.keys(address).join()})
+      values(${Object.values(address).map(escape).join()})
+    `)
+    return {
+      code: 200,
+      data: result
+    }
+  }
 }
