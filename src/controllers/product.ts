@@ -32,7 +32,7 @@ export default class ProductController {
     
     return {
       code: 200,
-      data: results
+      data: results.filter(item => !!item.id)
     }
   }
 
@@ -44,11 +44,9 @@ export default class ProductController {
       p.description,
       price.price
       from 
-      products as p,price 
+      products as p left join price ON p.id = price.product_id
       where 
       p.id = ${escape(id)}
-      and
-      p.id = price.product_id 
       and 
       price.type = 0
       and

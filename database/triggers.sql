@@ -30,5 +30,10 @@ BEGIN
     SIGNAL SQLSTATE '45000'
       SET MESSAGE_TEXT = 'Cannot add or update row: Return/refund order should has a relevant sales order';
   END IF;
+  IF (SELECT COUNT(id) FROM customer_address WHERE id = NEW.address AND customer_id = NEW.customer_id) = 0
+  THEN
+    SIGNAL SQLSTATE '45000'
+      SET MESSAGE_TEXT = 'The customer_id is not matching with address';
+  END IF;
 END;
 $$

@@ -86,37 +86,57 @@ POST http://localhost:3001/customer/address HTTP/1.1
 content-type: application/json
 
 {
-    "customer_id": 1,
+    "customer_id": 7,
     "country": "中国",
-    "province": "湖南",
-    "city": "长沙",
-    "address": "长沙市雨花区某地",
-    "zip": "123456"
+    "province": "广东",
+    "city": "深圳",
+    "address": "深圳市南山区百度国际大厦",
+    "zip": "92929383"
 }
 
 ###
-POST http://localhost:3001/order HTTP/1.1
+POST http://localhost:3001/order/sales HTTP/1.1
 content-type: application/json
-Authorization: Basic d2FuZ3d1OmhjMDU0ODIx
+Authorization: Basic wangwu hc054821
 
 {
-  "type": 1,
-  "status": 10,
   "amounts": 2090,
-  "address": 1,
+  "address": 2,
   "lines": [
     {
       "product_id": "DW00100004",
-      "price": 1490,
-      "qty": 1,
-      "amount": 1490
+      "qty": 1
     },
     {
       "product_id": "DW00200001",
-      "price": 600,
-      "qty": 1,
-      "amount": 600
+      "qty": 1
     }
   ]
 }
+
+###
+POST http://localhost:3001/order/sales HTTP/1.1
+content-type: application/json
+Authorization: Basic wangwu hc054821
+
+{
+  "amounts": 2090,
+  "refer_order": 10,
+  "address": 2,
+  "lines": [
+    {
+      "product_id": "DW00100004",
+      "qty": 1
+    },
+    {
+      "product_id": "DW00200001",
+      "qty": 1
+    }
+  ]
+}
+
+###
+GET  http://localhost:3001/order?pageIndex=1&pageSize=10&type=1 HTTP/1.1
+content-type: application/json
+Authorization: Basic wangwu hc054821
 

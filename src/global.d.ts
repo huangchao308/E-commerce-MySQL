@@ -63,7 +63,7 @@ type Address = {
   zip: string
 }
 
-type Order = {
+type OrderInsert = {
   id?: number
   type: number
   customer_id: number
@@ -75,11 +75,30 @@ type Order = {
   lines: OrderLine[]
 }
 
+type OrderQuery = {
+  id: number
+  type: number
+  customer_id: number
+  mobile: string
+  customer: string
+  status: number
+  date?: string
+  refer_order?: number
+  amounts: number
+  address: string
+  ZIP: string
+  city: string
+  lines: OrderLine[]
+}
+
 type OrderLine = {
-  order_id: number
+  order_id?: number
   line_no?: number
   product_id: string
-  price: number
   qty: number
-  amount: number
+}
+
+type Pagination = {
+  pageIndex: number
+  pageSize: number
 }

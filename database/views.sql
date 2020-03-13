@@ -14,5 +14,5 @@ CREATE OR REPLACE VIEW orders_head_view AS
     address.city as city
   FROM orders,customers as customer,customer_address as address
   WHERE
-  orders.customer_id = customer.id AND customer.id = address.customer_id
-  ORDER BY orders.date DESC;
+  orders.customer_id = customer.id AND orders.address = address.id
+  ORDER BY orders.id DESC;
